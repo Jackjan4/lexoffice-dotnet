@@ -4,6 +4,12 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>De.Roslan.LexofficeDotnet</RootNamespace>
     <AssemblyName>LexofficeDotnet</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Jan-Philipp Roslan</Authors>
+    <Company>ROSLAN</Company>
+    <Description>An easy to use .NET wrapper for the LexOffice Public API</Description>
+    <PackageProjectUrl>https://github.com/ROSLAN-NET/lexoffice-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ROSLAN-NET/lexoffice-dotnet</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

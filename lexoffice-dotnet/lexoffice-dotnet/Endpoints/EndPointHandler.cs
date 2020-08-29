@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace De.Roslan.LexofficeDotnet.Endpoints {
-    internal abstract class EndPointHandler {
+    public abstract class EndPointHandler {
 
-        protected RestClient client { get; set; }
+         protected internal RestClient client { get; }
 
-        public EndPointHandler(RestClient client)
+        internal EndPointHandler(RestClient client)
         {
             this.client = client;
         }

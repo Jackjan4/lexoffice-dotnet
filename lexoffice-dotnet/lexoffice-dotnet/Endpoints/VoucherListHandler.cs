@@ -4,25 +4,25 @@ using De.Roslan.LexofficeDotnet.Enums;
 using De.Roslan.LexofficeDotnet.Models.VoucherList;
 
 namespace De.Roslan.LexofficeDotnet.Endpoints {
-    internal class VoucherListHandler : EndPointHandler
+    public class VoucherListHandler : EndPointHandler, IVoucherListEndPoint
     {
 
 
-        public VoucherListHandler(RestClient client) : base(client) {}
+        internal VoucherListHandler(RestClient client) : base(client) {}
 
 
-        public VoucherList GetVoucherList(VoucherType type, VoucherStatus status, VoucherListArchived archived, int page, int pageSize) {
+        public LexOfficeResponse<VoucherList> GetVoucherList(VoucherType type, VoucherStatus status, VoucherListArchived archived, int page = 0, int pageSize = 25) {
 
             var result = PrepareVoucherListString(type, status, archived, page, pageSize);
-            var response = client.SendRequest<VoucherList>(result);
-            return response.Data;
+            var response = client.SendGetRequest<VoucherList>(result);
+            return new LexOfficeResponse<VoucherList>(response);
 
         }
 
 
         
 
-        public VoucherList GetVoucherListSorted(VoucherType type, VoucherStatus status, VoucherListArchived archived, bool desc, VoucherListSorter sorter, int page, int pageSize) {
+        public LexOfficeResponse<VoucherList> GetVoucherListSorted(VoucherType type, VoucherStatus status, VoucherListArchived archived, bool desc, VoucherListSorter sorter, int page = 0, int pageSize = 25) {
             var result = PrepareVoucherListString(type, status, archived, page, pageSize);
 
 
@@ -46,8 +46,8 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
             }
 
             result += $"&{strSorter}&";
-            var response = client.SendRequest<VoucherList>(result);
-            return response.Data;
+            var response = client.SendGetRequest<VoucherList>(result);
+            return new LexOfficeResponse<VoucherList>(response);
         }
 
 

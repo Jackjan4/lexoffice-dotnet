@@ -11,6 +11,16 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
         internal VoucherListHandler(RestClient client) : base(client) {}
 
 
+
+        /// <summary>
+        /// Returns the VoucherList with the given filters and page settings.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="status"></param>
+        /// <param name="archived"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public LexOfficeResponse<VoucherList> GetVoucherList(VoucherType type, VoucherStatus status, VoucherListArchived archived, int page = 0, int pageSize = 25) {
 
             var result = PrepareVoucherListString(type, status, archived, page, pageSize);
@@ -21,7 +31,17 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
 
 
         
-
+        /// <summary>
+        /// Returns the VoucherList with the given filters, page settings and sort settings.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="status"></param>
+        /// <param name="archived"></param>
+        /// <param name="desc"></param>
+        /// <param name="sorter"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public LexOfficeResponse<VoucherList> GetVoucherListSorted(VoucherType type, VoucherStatus status, VoucherListArchived archived, bool desc, VoucherListSorter sorter, int page = 0, int pageSize = 25) {
             var result = PrepareVoucherListString(type, status, archived, page, pageSize);
 
@@ -56,7 +76,7 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
         /// Prepare and populate the REST-resource string that should be send
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="status"></param>
+        /// <param name="status">Filters the vouchers by their status. Bit flags can be used here. Warning: Status "Overdue" can not be used together with other status.</param>
         /// <param name="archived"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>

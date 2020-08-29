@@ -10,6 +10,11 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
         internal InvoiceHandler(RestClient client) : base(client) { }
 
 
+        /// <summary>
+        /// Retrieves an invoice by its id.
+        /// </summary>
+        /// <param name="invoiceId"></param>
+        /// <returns></returns>
         public LexOfficeResponse<Invoice> RetrieveInvoice(string invoiceId) {
             string resource = $"/invoices/{invoiceId}";
 
@@ -17,6 +22,14 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
             return new LexOfficeResponse<Invoice>(response);
         }
 
+
+
+        /// <summary>
+        /// Submits a given invoice to LexOffice. Please refer to the official documentation for which properties must be filled out and which must not.
+        /// </summary>
+        /// <param name="invoice">The invoice which is meant to be submitted</param>
+        /// <param name="finalize">If true, submits the invoice as finalized. Otherwise saves it as a draft</param>
+        /// <returns></returns>
         public LexOfficeResponse<PostResponse> CreateInvoice(Invoice invoice, bool finalize = false) {
             string resource = $"/invoices";
 
@@ -28,6 +41,13 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
             return new LexOfficeResponse<PostResponse>(response);
         }
 
+
+
+        /// <summary>
+        /// Renders an invoice document as a PDF. This is needed because newly created invoices with status "open" need to trigger the PDF render process manually.
+        /// </summary>
+        /// <param name="invoiceId"></param>
+        /// <returns></returns>
         public LexOfficeResponse<DocumentLink> RenderInvoiceDocument(string invoiceId) {
             string resource = $"/invoices/{invoiceId}/document";
 

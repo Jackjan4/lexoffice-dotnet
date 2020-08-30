@@ -13,7 +13,7 @@ namespace test {
         [TestMethod]
         public void TestVoucherListNormal() {
 
-            LexOfficeApi api = new LexOfficeApi("705a1afd-0636-4766-8bcb-68a7d0b5a6cd");
+            LexOfficeApi api = new LexOfficeApi(Properties.Resources.apiKey);
 
             var lst = api.VoucherListEndPoint.GetVoucherList(VoucherType.Invoice, VoucherStatus.Open | VoucherStatus.Paid, VoucherListArchived.Both,0,10);
 
@@ -23,7 +23,7 @@ namespace test {
         [TestMethod]
         public void TestVoucherListSorted() {
 
-            LexOfficeApi api = new LexOfficeApi("705a1afd-0636-4766-8bcb-68a7d0b5a6cd");
+            LexOfficeApi api = new LexOfficeApi(Properties.Resources.apiKey);
 
             api.VoucherListEndPoint.GetVoucherListSorted(VoucherType.Invoice, VoucherStatus.Open | VoucherStatus.Paid, VoucherListArchived.Both, false, VoucherListSorter.VoucherDate);
         }

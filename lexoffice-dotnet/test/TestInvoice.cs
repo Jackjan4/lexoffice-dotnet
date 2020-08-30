@@ -12,7 +12,7 @@ namespace test {
         [TestMethod]
         public void TestInvoiceRetrieval()
         {
-            LexOfficeApi api = new LexOfficeApi("705a1afd-0636-4766-8bcb-68a7d0b5a6cd");
+            LexOfficeApi api = new LexOfficeApi(Properties.Resources.apiKey);
 
             var invoice = api.InvoiceEndPoint.RetrieveInvoice("d150ca2a-bf7d-4291-b662-55980bdfde5c");
 

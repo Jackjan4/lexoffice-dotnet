@@ -30,7 +30,7 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
             return new LexOfficeResponse<PostResponse>(response);
         }
 
-        public LexOfficeResponse<ListResponse<Contact>> FilterContacts(string email = null, string name = null, int? number = null, bool? customer = null,
+        public LexOfficeResponse<ResourcePage<Contact>> FilterContacts(string email = null, string name = null, int? number = null, bool? customer = null,
             bool? vendor = null) {
 
             string resource = $"/contacts/";
@@ -63,8 +63,8 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
                 resource = resource.Substring(0, resource.Length - 1);
             }
 
-            var response = client.SendGetRequest<ListResponse<Contact>>(resource);
-            return new LexOfficeResponse<ListResponse<Contact>>(response);
+            var response = client.SendGetRequest<ResourcePage<Contact>>(resource);
+            return new LexOfficeResponse<ResourcePage<Contact>>(response);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
     public interface IVoucherListEndPoint {
 
 
-        public LexOfficeResponse<ListResponse<VoucherListEntry>> GetVoucherListSorted(VoucherType type, VoucherStatus status,
+        public LexOfficeResponse<ResourcePage<VoucherListEntry>> GetVoucherListSorted(VoucherType type, VoucherStatus status,
             VoucherListArchived archived, bool desc, VoucherListSorter sorter, int page = 0, int pageSize = 25);
 
-        public LexOfficeResponse<ListResponse<VoucherListEntry>> GetVoucherList(VoucherType type, VoucherStatus status,
+        public LexOfficeResponse<ResourcePage<VoucherListEntry>> GetVoucherList(VoucherType type, VoucherStatus status,
             VoucherListArchived archived, int page = 0, int pageSize = 25);
 
 

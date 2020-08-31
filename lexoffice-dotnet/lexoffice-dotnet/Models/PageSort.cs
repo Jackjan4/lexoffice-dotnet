@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace De.Roslan.LexofficeDotnet.Models {
-    public class ListSort {
+    public class PageSort {
         public string property { get; set; }
         public string direction { get; set; }
         public bool ignoreCase { get; set; }

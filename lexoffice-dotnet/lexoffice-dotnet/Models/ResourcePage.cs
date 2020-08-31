@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace De.Roslan.LexofficeDotnet.Models {
-    public class ListResponse<T> {
+    public class ResourcePage<T> {
         public List<T> content { get; set; }
         public bool first { get; set; }
         public bool last { get; set; }
@@ -10,6 +10,6 @@ namespace De.Roslan.LexofficeDotnet.Models {
         public int numberOfElements { get; set; }
         public int size { get; set; }
         public int number { get; set; }
-        public List<ListSort> sort { get; set; }
+        public List<PageSort> sort { get; set; }
     }
 }

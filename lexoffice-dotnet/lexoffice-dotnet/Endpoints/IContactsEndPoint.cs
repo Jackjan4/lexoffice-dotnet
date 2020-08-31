@@ -15,6 +15,6 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
 
         public LexOfficeResponse<PostResponse> UpdateContact(string contactId, Contact contact);
 
-        public LexOfficeResponse<ResourcePage<Contact>> FilterContacts(string email = null, string name = null, int? number = null, bool? customer = null, bool? vendor = null);
+        public LexOfficeResponse<ResourcePage<Contact>> FilterContacts(string email = null, string name = null, int? number = null, bool? customer = null, bool? vendor = null, int page = 0, int pageSize = 25);
     }
 }

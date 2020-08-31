@@ -31,32 +31,28 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
         }
 
         public LexOfficeResponse<ResourcePage<Contact>> FilterContacts(string email = null, string name = null, int? number = null, bool? customer = null,
-            bool? vendor = null) {
+            bool? vendor = null, int page = 0, int pageSize = 25) {
 
-            string resource = $"/contacts/";
-
-            if (email != null || name != null || number != null || customer != null) {
-                resource += "?";
-            }
+            string resource = $"/contacts?page={page}&size={pageSize}";
 
             if (email != null) {
-                resource += $"email={email}&";
+                resource += $"&email={email}";
             }
 
             if (name != null) {
-                resource += $"name={name}&";
+                resource += $"&name={name}";
             }
 
             if (number != null) {
-                resource += $"number={number}&";
+                resource += $"&number={number}";
             }
 
             if (customer != null) {
-                resource += $"customer={customer}&";
+                resource += $"&customer={customer}";
             }
 
             if (vendor != null) {
-                resource += $"vendor={vendor}&";
+                resource += $"&vendor={vendor}";
             }
 
             if (resource.EndsWith('&')) {

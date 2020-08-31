@@ -61,5 +61,20 @@ namespace De.Roslan.LexofficeDotnet {
             var response = _client.Post<T>(req);
             return response;
         }
+
+        public IRestResponse<T> SendFileUploadRequest<T>(string resource, string filePath)
+        {
+            var req = new RestRequest(resource, Method.POST) {
+                    RequestFormat = DataFormat.Json
+                }
+                .AddFile("content",filePath,"voucher")
+                .AddHeader("Content-Type", "multipart/form-data");
+
+            var str = req.ToString();
+
+            var response = _client.Post<T>(req);
+            return response;
+        }
     }
+    
 }

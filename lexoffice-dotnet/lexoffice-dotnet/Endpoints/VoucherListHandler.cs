@@ -1,6 +1,7 @@
 ﻿using System;
 using De.Roslan.lexofficeDotnet.Enums;
 using De.Roslan.LexofficeDotnet.Enums;
+using De.Roslan.LexofficeDotnet.Models;
 using De.Roslan.LexofficeDotnet.Models.VoucherList;
 
 namespace De.Roslan.LexofficeDotnet.Endpoints {
@@ -21,11 +22,11 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public LexOfficeResponse<VoucherList> GetVoucherList(VoucherType type, VoucherStatus status, VoucherListArchived archived, int page = 0, int pageSize = 25) {
+        public LexOfficeResponse<ListResponse<VoucherListEntry>> GetVoucherList(VoucherType type, VoucherStatus status, VoucherListArchived archived, int page = 0, int pageSize = 25) {
 
             var result = PrepareVoucherListString(type, status, archived, page, pageSize);
-            var response = client.SendGetRequest<VoucherList>(result);
-            return new LexOfficeResponse<VoucherList>(response);
+            var response = client.SendGetRequest<ListResponse<VoucherListEntry>>(result);
+            return new LexOfficeResponse<ListResponse<VoucherListEntry>>(response);
 
         }
 
@@ -42,7 +43,7 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public LexOfficeResponse<VoucherList> GetVoucherListSorted(VoucherType type, VoucherStatus status, VoucherListArchived archived, bool desc, VoucherListSorter sorter, int page = 0, int pageSize = 25) {
+        public LexOfficeResponse<ListResponse<VoucherListEntry>> GetVoucherListSorted(VoucherType type, VoucherStatus status, VoucherListArchived archived, bool desc, VoucherListSorter sorter, int page = 0, int pageSize = 25) {
             var result = PrepareVoucherListString(type, status, archived, page, pageSize);
 
 
@@ -66,8 +67,8 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
             }
 
             result += $"&{strSorter}&";
-            var response = client.SendGetRequest<VoucherList>(result);
-            return new LexOfficeResponse<VoucherList>(response);
+            var response = client.SendGetRequest<ListResponse<VoucherListEntry>>(result);
+            return new LexOfficeResponse<ListResponse<VoucherListEntry>>(response);
         }
 
 

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace De.Roslan.LexofficeDotnet.Models.VoucherList {
+
+
+
+    // TODO: This class is actually just a voucher but in the real voucher the VoucherType is called "type" and here it must be called "voucherType"
     public class VoucherListEntry {
         public string id { get; set; }
         public string voucherType { get; set; }

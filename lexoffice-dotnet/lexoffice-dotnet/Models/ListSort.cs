@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace De.Roslan.LexofficeDotnet.Models.VoucherList {
-    public class VoucherListSort {
+namespace De.Roslan.LexofficeDotnet.Models {
+    public class ListSort {
         public string property { get; set; }
         public string direction { get; set; }
         public bool ignoreCase { get; set; }

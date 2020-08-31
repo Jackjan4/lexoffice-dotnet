@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace De.Roslan.LexofficeDotnet.Models.Invoice {
+namespace De.Roslan.LexofficeDotnet.Models {
     public class Address {
 
         public string name { get; set; }

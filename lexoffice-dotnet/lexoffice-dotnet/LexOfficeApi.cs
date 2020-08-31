@@ -10,6 +10,8 @@ namespace De.Roslan.LexofficeDotnet {
         public IVoucherListEndPoint VoucherListEndPoint { get; }
         public IInvoiceEndPoint InvoiceEndPoint { get; }
 
+        public IContactsEndPoint ContactsEndPoint { get; }
+
 
         public LexOfficeApi(string apiKey) {
 
@@ -19,6 +21,7 @@ namespace De.Roslan.LexofficeDotnet {
 
             VoucherListEndPoint = new VoucherListHandler(client);
             InvoiceEndPoint = new InvoiceHandler(client);
+            ContactsEndPoint = new ContactsHandler(client);
 
         }
 

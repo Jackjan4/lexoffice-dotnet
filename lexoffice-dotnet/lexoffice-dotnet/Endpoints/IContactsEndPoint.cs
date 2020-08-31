@@ -5,7 +5,7 @@ using De.Roslan.LexofficeDotnet.Models;
 using De.Roslan.LexofficeDotnet.Models.Contact;
 
 namespace De.Roslan.LexofficeDotnet.Endpoints {
-    interface IContactsEndPoint
+    public interface IContactsEndPoint
     {
 
 
@@ -15,6 +15,6 @@ namespace De.Roslan.LexofficeDotnet.Endpoints {
 
         public LexOfficeResponse<PostResponse> UpdateContact(string contactId, Contact contact);
 
-        public LexOfficeResponse<ListResponse<Contact>> FilterContacts();
+        public LexOfficeResponse<ListResponse<Contact>> FilterContacts(string email = null, string name = null, int? number = null, bool? customer = null, bool? vendor = null);
     }
 }

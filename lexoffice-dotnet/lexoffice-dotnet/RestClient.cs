@@ -37,7 +37,16 @@ namespace De.Roslan.LexofficeDotnet {
         public IRestResponse<T> SendGetRequest<T>(string resource) {
             var req = new RestRequest(resource);
             return _client.Get<T>(req);
+        }
 
+        public IRestResponse<T> SendPutRequest<T>(string resource, object data) {
+            var req = new RestRequest(resource, Method.PUT) {
+                RequestFormat = DataFormat.Json
+            }.AddJsonBody(data)
+                .AddHeader("Content-Type", "application/json");
+
+            var response = _client.Put<T>(req);
+            return response;
         }
 
 
